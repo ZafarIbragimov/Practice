@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        transition: background-color 0.5s, color 0.5s;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+      }
+      h1,
+      h2 {
+        transition: color 0.5s;
+      }
+      button {
+        margin: 5px;
+        padding: 12px 25px;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+      #cs {
+        margin: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #vc {
+        padding-left: 0px;
+        width: 350px;
+      }
+      .dark-mode {
+        background-color: #121212;
+        color: #f1f1f1;
+      }
+      #rotatingDiv {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        animation: rotate 2s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      #myDiv {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 20px auto;
+        transition: background-color 0.5s, width 0.5s, height 0.5s;
+      }
+      #colorText {
+        color: red;
+        transition: color 0.5s;
+      }
+      img {
+        width: 350px;
+        margin: 20px auto;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+      }
+      img:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="xaxa">Salom Dunyo</h1>
+    <button
+      onclick="document.getElementById('xaxa').innerText='Ibragimov Zafar'"
+    >
+      Nomni O'zgartirish
+    </button>
+    <button onclick="document.getElementById('xaxa').innerText=''">
+      O'chirish
+    </button>
+    <button onclick="document.getElementById('xaxa').style.color='red'">
+      Rang berish
+    </button>
+    <button onclick="document.getElementById('xaxa').style.color=''">
+      O'ziga qaytarish
+    </button>
+    <button onclick="document.getElementById('xaxa').style.width='100px'">
+      Kattalashtirish
+    </button>
+    <button onclick="document.getElementById('xaxa').style.width=''">
+      Asliga qaytarish
+    </button>
+    <button onclick="document.getElementById('xaxa').style.paddingLeft='200px'">
+      O'rtaga
+    </button>
+    <br />
+    <br />
+
+    <img
+      id="Kuchu"
+      title="Lamborghini"
+      src="https://avatars.mds.yandex.net/i?id=c2e10e168477e4e5bcd828850b9fec50_l-4620768-images-thumbs&n=13"
+      alt="Car Image"
+    />
+    <br />
+    <button onclick="document.getElementById('Kuchu').title='Toyota'">
+      Rasm nomini o'zgartirish
+    </button>
+    <br />
+    <br />
+
+    <img id="vc" src="./bulb_off.gif" alt="Bulb Image" />
+    <button id="cs" onclick="toggleBulb()">On/Off</button>
+
+    <h2 id="heading1"></h2>
+    <button onclick="changeText()">Change to "JavaScript"</button>
+    <br />
+    <br />
+
+    <h2><span id="colorText">Qizil</span> olma</h2>
+    <button onclick="document.getElementById( 'colorText').style.color='green'">
+      O'tkazish Yashil
+    </button>
+    <br />
+    <br />
+
+    <a id="link" href="https://pdp.uz" target="_blank">PDP</a>
+    <button onclick="changeLink()">YouTube</button>
+    <br />
+    <br />
+
+    <div id="myDiv"></div>
+    <button onclick="changeDiv()">Div</button>
+    <br />
+    <br />
+
+    <div id="rotatingDiv"></div>
+    <button onclick="stopRotation()">Stop</button>
+    <button onclick="startRotation()">Start</button>
+    <br />
+    <br />
+
+    <button onclick="toggleMode()">Light/Dark</button>
+
+    <script>
+      function changeColor() {
+        let colorText = document.getElementById("colorText");
+        colorText.innerText = "Yashil";
+        colorText.style.color = "green";
+      }
+
+      function toggleBulb() {
+        let bulbImage = document.getElementById("vc");
+        if (bulbImage.src.includes("bulb_off.gif")) {
+          bulbImage.src = "./bulb_on.gif";
+        } else {
+          bulbImage.src = "./bulb_off.gif";
+        }
+      }
+
+      function changeText() {
+        document.getElementById("heading1").innerText = "JavaScript";
+      }
+
+      function changeLink() {
+        let link = document.getElementById("link");
+        link.innerText = "YouTube";
+        link.href = "https://youtube.com";
+      }
+
+      function changeDiv() {
+        let myDiv = document.getElementById("myDiv");
+        myDiv.style.backgroundColor = "yellow";
+        myDiv.style.width = "200px";
+        myDiv.style.height = "200px";
+      }
+
+      function stopRotation() {
+        document.getElementById("rotatingDiv").style.animationPlayState =
+          "paused";
+      }
+
+      function startRotation() {
+        document.getElementById("rotatingDiv").style.animationPlayState =
+          "running";
+      }
+
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>
